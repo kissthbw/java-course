@@ -7,7 +7,7 @@ package com.examples;
 
 //[accessModifier] class [className]
 public class Computer {
-	
+
 	//1.Fields (variables)
 	//Describen las propiedades de una cosa.
 	//[accessModifier] [dataType] [name]

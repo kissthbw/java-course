@@ -5,20 +5,37 @@ import java.util.List;
 
 public class Hamburger {
 
-	// Campos, variables o propiedades
+	/*
+	 * Datos primitivos y su valor por default
+	 * byte = 0
+	 * short = 0
+	 * boolean = false
+	 * int = 0
+	 * long = 0
+	 * double = 0.0
+	 * float = 0.0
+	 * char = ''
+	 */
+	
+	//
+	//Campos de instancia
 	private List<String> ingredients = new ArrayList<>();
-	private double precio;
+	private double precio = 0.0;
 	private String tamanio;
 	private String tipoCarne;
 	private String terminoCarne;
 	private String tipoPan;
 	private String nombreHamburguesa;
+	private char ranking;
 
 	// Constructor default
 	public Hamburger() {
+		//TODO: @Adrian pon un mensaje imprimiendo todas las propiedades o campos y sus valores
 	}
 
 	public Hamburger(List<String> ingredients, double precio) {
+		//TODO: @Adrian complementa este contrcutor agregando n parametros segun la cantidad de campos que tengas
+		//y tambien muestra un mensaje 
 		this.ingredients = ingredients;
 		this.precio = precio;
 	}
@@ -33,7 +50,7 @@ public class Hamburger {
 	}
 
 	public void setTipoCarne(String tipoCarne) {
-		this.terminoCarne = tamanioCarne;
+		this.tipoCarne = tipoCarne;
 	}
 
 	public void setTerminoCarne(String terminoCarne) {

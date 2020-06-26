@@ -1,5 +1,8 @@
 package com.examples;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HamburgerMain {
 
 	/*
@@ -40,5 +43,12 @@ public class HamburgerMain {
 		
 		System.out.println("\n" + "Hamburguesa: " + h2.getNombreHamburguesa());
 		h1.preparingHamburger();
+		
+		List<String> i = new ArrayList<>();
+		double precio = 50.0;
+		String tamanio = "Mediano";
+		String tipoCarne = "Carne asada";
+		
+		Hamburger h3 = new Hamburger(i, precio, tamanio, tipoCarne);
 	}
 }

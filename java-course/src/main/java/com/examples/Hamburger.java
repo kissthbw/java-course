@@ -25,14 +25,18 @@ public class Hamburger {
 	public Hamburger() {
 		// TODO: @Adrian pon un mensaje imprimiendo todas las propiedades o campos y sus
 		// valores
+		System.out.println("Creando hamburgesa con precio: " + precio );
 	}
 
-	public Hamburger(List<String> ingredients, double precio) {
+	public Hamburger(List<String> ingredients, double precio, String tamanio, String tipoCarne) {
 		// TODO: @Adrian complementa este contrcutor agregando n parametros segun la
 		// cantidad de campos que tengas
 		// y tambien muestra un mensaje
 		this.ingredients = ingredients;
 		this.precio = precio;
+		this.tamanio = tamanio;
+		this.tipoCarne = tipoCarne;
+		System.out.println("Creando hamburgesa con precio: " + precio );
 	}
 
 	// Methodo
@@ -109,8 +113,8 @@ public class Hamburger {
 	// TODO: Agregar un metodo que se llama prepareHamburger
 
 	public void preparingHamburger() {
-		System.out.println("Cocinando carne...");
-		System.out.println("Calentando pan...");
+		System.out.println("Cocinando carne..." + tipoCarne);
+		System.out.println("Calentando pan..." + tipoPan);
 		System.out.println("Zazonando ingredientes...");
 		System.out.println("Armando hamburguesa...");
 

@@ -13,22 +13,25 @@ public class Hamburger {
 	//
 	// Campos de instancia
 	private List<String> ingredients = new ArrayList<>();
-	private double precio = 0.0;
-	private String tamanio;
-	private String tipoCarne;
-	private String terminoCarne;
-	private String tipoPan;
-	private String nombreHamburguesa;
-	private char ranking;
+	private double precio = 50.0;
+	private String tamanio = "mediana";
+	private String tipoCarne = "arrachera";
+	private String terminoCarne = "en su punto";
+	private String tipoPan = "5 especias";
+	private String nombreHamburguesa = "deluxe";
+	private String ranking = "10";
 
 	// Constructor default
 	public Hamburger() {
 		// TODO: @Adrian pon un mensaje imprimiendo todas las propiedades o campos y sus
 		// valores
-		System.out.println("Creando hamburgesa con precio: " + precio );
+		System.out.println("Creando hamburgesa: " + nombreHamburguesa + ", precio: " + precio + ", tamaño: "
+				+ tamanio + ", carne; " + tipoCarne + ", termino: " + terminoCarne + ", pan: " + tipoPan
+				+ ", ingredientes: " + ingredients + ", ranking: " + ranking);
 	}
 
-	public Hamburger(List<String> ingredients, double precio, String tamanio, String tipoCarne) {
+	public Hamburger(List<String> ingredients, double precio, String tamanio, String tipoCarne, String terminoCarne,
+			String tipoPan, String nombreHamburguesa, String ranking) {
 		// TODO: @Adrian complementa este contrcutor agregando n parametros segun la
 		// cantidad de campos que tengas
 		// y tambien muestra un mensaje
@@ -36,7 +39,14 @@ public class Hamburger {
 		this.precio = precio;
 		this.tamanio = tamanio;
 		this.tipoCarne = tipoCarne;
-		System.out.println("Creando hamburgesa con precio: " + precio );
+		this.terminoCarne = terminoCarne;
+		this.tipoPan = tipoPan;
+		this.nombreHamburguesa = nombreHamburguesa;
+		this.ranking = ranking;
+
+		System.out.println("Creando hamburgesa: " + nombreHamburguesa + ", precio: " + precio + ", tamaño: " + tamanio
+				+ ", carne: " + tipoCarne + ", termino: " + terminoCarne + ", pan: " + tipoPan + ", ranking: "
+				+ ranking);
 	}
 
 	// Methodo
@@ -72,7 +82,7 @@ public class Hamburger {
 		this.nombreHamburguesa = nombreHamburguesa;
 	}
 
-	public char getRanking() {
+	public String getRanking() {
 		return ranking;
 	}
 
@@ -106,7 +116,7 @@ public class Hamburger {
 		return nombreHamburguesa;
 	}
 
-	public void setRanking(char ranking) {
+	public void setRanking(String ranking) {
 		this.ranking = ranking;
 	}
 
@@ -115,7 +125,7 @@ public class Hamburger {
 	public void preparingHamburger() {
 		System.out.println("Cocinando carne..." + tipoCarne);
 		System.out.println("Calentando pan..." + tipoPan);
-		System.out.println("Zazonando ingredientes...");
+		System.out.println("Sazonando ingredientes...");
 		System.out.println("Armando hamburguesa...");
 
 		System.out.println("Lista para empacar...");

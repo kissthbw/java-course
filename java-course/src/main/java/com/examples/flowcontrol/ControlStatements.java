@@ -51,5 +51,55 @@ public class ControlStatements {
 		} else {
 			System.out.println("Reprobado");
 		}
+		
+		/*
+		 * Uso de switch
+		 * Nota, permite evaluar int, boolean, String, enums
+		 */
+		System.out.println( "Uso de switch" );
+		int cal = 9;
+		switch (cal) {
+		case 7:
+			System.out.println("Aprobado");
+			break;
+		case 8:
+			System.out.println("Aprobado... buen trabajo");
+			break;
+		case 9:
+			System.out.println("Aprobado... sobresaliente");
+			break;
+		case 10:
+			System.out.println("Aprobado... perfecto");
+			break;
+		default:
+			System.out.println("Reprobado");
+			break;
+		}
+		
+		String tipoMembresia = "GOLD";
+		switch (tipoMembresia) {
+		case "BRONZE":
+			System.out.println( "Servicios basicos" );
+			break;
+		case "SILVER":
+			System.out.println( "Servicios basicos + valet parking" );
+			break;
+		case "GOLD":
+			System.out.println( "Todos los servicios" );
+			break;
+		default:
+			System.out.println( "Menbresia no catalogada" );
+			break;
+		}
+		
+		String tipoUsuario = "SUPER";
+		switch (tipoUsuario) {
+		case "NORMAL":
+			break;
+		case "SUPER":
+			break;
+		}
+		
+		
 	}
 }

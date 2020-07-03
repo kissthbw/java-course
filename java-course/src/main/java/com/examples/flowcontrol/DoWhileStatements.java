@@ -43,11 +43,12 @@ public class DoWhileStatements {
 		while(i < array.length) {
 			if (numero == array[i]) {
 				contador ++;
-				System.out.println("El numero: " + numero + " esta: " + contador + " vez(ces)");
 			}
 			
 			i++;
 		}
+		
+		System.out.println("El numero: " + numero + " esta: " + contador + " vez(ces)");
 	}
 
 	public static void main(String[] args) {

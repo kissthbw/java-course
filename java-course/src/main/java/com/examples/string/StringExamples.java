@@ -2,6 +2,14 @@ package com.examples.string;
 
 public class StringExamples {
 	
+	//TODO: Adrian crea un metodo que se llama analizar cadena
+	//Tiene un parametro de tipo String, que contendra una cadena separada por pipes(|)
+	//ejemplo: Nombre|Paterno|Materno|Edad|Sexo|Dir|Correo
+	//Imprimirlos y quitar espacion en caso de que haya
+	//Imprimirlos todos en mayusculas
+	//Adelante de cada linea imprimir la longitud de la cadena individual
+	//En la parte de Sexo, los valore son M o F, reemplazarlos por Masculino y Femenino
+	
 	public static void main( String[] args ) {
 		//El uso de la String
 		String s1 = "Hola Mundo";
@@ -40,5 +48,40 @@ public class StringExamples {
 		System.out.println( s1.equals(s2) );
 		
 		System.out.println( s1.equalsIgnoreCase(s2) );
+		
+		/*
+		 * Uso de indexOf, lastIndexOf para encontrar la posicion de algun caracter
+		 * dentro de una cadena
+		 */
+		String file = "reporte.pdf";
+		int pos = file.indexOf(".");
+		int lenght = file.length();
+		
+		System.out.println( "Posicion: " + pos );
+		String nombre = file.substring(0, pos);
+		System.out.println( "Nombre de archivo: " + nombre );
+		String ext = file.substring(pos + 1, lenght);
+		System.out.println( "Extension de archivo: " + ext );
+		
+		
+		file = "log.tmp.zip";
+		System.out.println( "Posicion: " + file.lastIndexOf(".") );
+		
+		/*
+		 * Uso del metodo split para dividir cadenas
+		 */
+		String linea = "Juan,Osorio,Alvarez,36,Virgen de los Remedios 71";
+		String[] partes = linea.split(",");
+		for( String p : partes ) {
+			System.out.println( p );
+		}
+		
+		/*
+		 * Uso del metodo replace para remplazar cadenas
+		 */
+		file = "temporal.doc";
+		file = file.replace( "temporal", "tarea" );
+		System.out.println( file );
+		
 	}
 }

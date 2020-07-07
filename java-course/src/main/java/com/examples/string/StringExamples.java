@@ -40,5 +40,20 @@ public class StringExamples {
 		System.out.println( s1.equals(s2) );
 		
 		System.out.println( s1.equalsIgnoreCase(s2) );
+		
+		//Ejercicios
+		
+		String frase1 = "parangaricutirimicuaro";
+		String frase2 = "TRABALENGUAS";
+		String frases = "  Hola a todos " + "yo soy ";
+		frases = frases + frase1 + " y soy un " + frase2.toLowerCase();
+		
+		System.out.println("Ejercicios");
+		System.out.println(frases);
+		System.out.println(frases.length());
+		System.out.println(frase1.equalsIgnoreCase(frase2));
+		System.out.println(frases.toUpperCase());
+		System.out.println(frase2.substring(5, 12));
+		System.out.println(frases.trim());
 	}
 }

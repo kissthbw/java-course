@@ -2,6 +2,14 @@ package com.examples.string;
 
 public class StringExamples {
 
+	//TODO: Adrian crea una clase en el paquete com.examples.flowcontrol
+	//que se llama Operaciones, y que tenga un metodo que se llama mostrarTabla,
+	//y que tenga como parametro la base de la tabla a mostar que vaya de 1 a 50
+	//hacer este metodo con for, while y do while
+	
+	//TODO: Adrian crear un metodo en esta clase (StringExamples) que devuelve tru
+	//si es un palindromo o false si no lo es.
+	
 	// TODO: Adrian crea un metodo que se llama analizar cadena
 	// Tiene un parametro de tipo String, que contendra una cadena separada por
 	// pipes(|)
@@ -26,7 +34,37 @@ public class StringExamples {
 
 		return cadena;
 	}
+	
+	//Comentario simple
+	/*
+	 * Otro Comentario
+	 */
+	/**
+	 * Este metodo ejemplifica el uso del metodo chartAt de la clase String
+	 * @param s Es una cadena a la cual se le aplicara el metodo chartAt 
+	 * @return void
+	 */
+	public void chartAtExample( String s ) {
+		char c = s.charAt(11);
+		System.out.println( c );
+	}
 
+	//Uso del metodo contains
+	public void containsExample( String s ) {
+		boolean b = s.contains( "001" );
+		System.out.println( b );
+	}
+	
+	public void startsWithExample( String s ) {
+		boolean b = s.startsWith( "001" );
+		System.out.println( b );
+	}
+	
+	public void endsWithExample( String s ) {
+		boolean b = s.endsWith( "pdf" );
+		System.out.println( b );
+	}
+	
 	public static void main(String[] args) {
 		// El uso de la String
 		String s1 = "Hola Mundo";
@@ -117,5 +155,29 @@ public class StringExamples {
 		StringExamples analiza = new StringExamples();
 		String datos = " Adrian|Osorio|Alvarez|35| M |Pataguas 115|osorio.alvarez.adrian@gmail.com";
 		String cadena = analiza.analizarCadena(datos);
+		
+		/*
+		 * Uso chartAt
+		 */
+		analiza.chartAtExample( "Hola mundo  " );
+		
+		/*
+		 * Uso de contains
+		 */
+		String folio = "002_DOC-001.pdf";
+		analiza.containsExample( folio );
+		analiza.startsWithExample( folio );
+		analiza.endsWithExample( folio );
+		
+		//Explicacion de la inmutabilidad de String
+		String n = "Adrian";
+		n = n + " Osorio";
+		n = n + " Alvarez";
+		System.out.println( n );
+		
+		//Explicacion de la mutabilidda de StringBuilder
+		StringBuilder sb = new StringBuilder( "Adrian" );
+		sb.append( " Osorio" );
+		sb.append( " Alvarez" );
 	}
 }

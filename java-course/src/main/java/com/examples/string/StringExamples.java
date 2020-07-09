@@ -13,6 +13,16 @@ public class StringExamples {
 	// Femenino
 
 	public String analizarCadena(String cadena) {
+		
+		System.out.println("Mis datos son: " + cadena);
+		System.out.println("Mis datos son: " + cadena.trim());
+		System.out.println("Mis datos son: " + cadena.toUpperCase().trim());
+		
+		String[] partesCadena = cadena.split("\\|");
+		for (String pC : partesCadena) {
+			System.out.println("Dato: " + pC.trim() + " Longitud: " + pC.length());
+		}
+		System.out.println("Mis datos son: " + cadena.replace("M", "Masculino"));
 
 		return cadena;
 	}
@@ -105,16 +115,7 @@ public class StringExamples {
 		System.out.println(file);
 
 		StringExamples analiza = new StringExamples();
-		String datos = " Adrian|Osorio|Alvarez|35|M|Pataguas 115|osorio.alvarez.adrian@gmail.com";
+		String datos = " Adrian|Osorio|Alvarez|35| M |Pataguas 115|osorio.alvarez.adrian@gmail.com";
 		String cadena = analiza.analizarCadena(datos);
-		System.out.println("Mis datos son: " + cadena);
-		System.out.println("Mis datos son: " + cadena.trim());
-		System.out.println("Mis datos son: " + cadena.toUpperCase().trim());
-		String[] partesCadena = datos.split("\\|");
-		for (String pC : partesCadena) {
-			System.out.println("Dato: " + pC.trim() + " Longitud: " + pC.length());
-		}
-		System.out.println("Mis datos son: " + cadena.replace("M", "Masculino"));
-
 	}
 }

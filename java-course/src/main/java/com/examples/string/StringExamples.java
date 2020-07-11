@@ -7,19 +7,30 @@ public class StringExamples {
 
 	public boolean palindromo(String cadena) {
 
-		String c = "";
+		cadena = cadena.trim();
 		String invertida = "";
-		int i = 0;
-		for (i = 0; i < c.length(); i++) {
-			// guardar los valores de i en la variable invertida
-			invertida = invertida + c.charAt(i);
-			/*
-			 * sentencia de control if para comparar si son iguales el valor de c vs el
-			 * valor de invertida y determinar si es un palindromo o no
-			 */
+		
+		for( int i = ( cadena.length() - 1 ); i >= 0; i-- ) {
+			char l = cadena.charAt(i);
+			System.out.println( l );
+			invertida += l;
 		}
+		
+		System.out.println( "Invertida: " + invertida );
+		System.out.println( "Son iguales: " + invertida.equalsIgnoreCase(cadena) );
+		
+		/*
+		for (int i = 0; i < c.length(); i++) {
+			// guardar los valores de i en la variable invertida
+			//invertida = invertida + c.charAt(i);
+			
+			 sentencia de control if para comparar si son iguales el valor de c vs el
+			 valor de invertida y determinar si es un palindromo o no
+			 
+		}
+		*/
 
-		return false;
+		return invertida.equalsIgnoreCase(cadena);
 	}
 
 	// TODO: Adrian crea un metodo que se llama analizar cadena
@@ -191,5 +202,14 @@ public class StringExamples {
 		StringBuilder sb = new StringBuilder("Adrian");
 		sb.append(" Osorio");
 		sb.append(" Alvarez");
+		
+		analiza.palindromo( "Ana " );
+		
+		//Ejemplo de metodos en cadena
+		n = " adrian ";
+//		n = n.trim();
+//		n = n.toUpperCase();
+		n = n.trim().toUpperCase();
+		System.out.println( n );
 	}
 }

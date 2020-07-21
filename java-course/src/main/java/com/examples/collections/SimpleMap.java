@@ -107,7 +107,10 @@ public class SimpleMap {
 		calendario.put("Diciembre", 31);
 
 		for (Map.Entry<String, Integer> c : calendario.entrySet()) {
-			System.out.println(c.getKey() + " tiene " + c.getValue() + " días");
+			System.out.println(c.getKey() + " tiene " + c.getValue() + " dias");
 		}
+		
+		//Verificar si la coleccion esta vacia
+		System.out.println( calendario.isEmpty() );
 	}
 }

@@ -15,14 +15,19 @@ import java.nio.file.Paths;
 public class DocumentAnalizer {
 
 	//4. Propiedades o campos
+	private File sourceFile;
 	private Integer totalLetras;
 	private Integer totalParrafos;
 	private Integer totalPalabras;
 	private Integer totalLineas;
 	private Integer totalSignosPuntuacion;
+	private static final String coma = ",";
+	private static final String punto = ".";
+	
 	
 	//5. Constructores
-	public DocumentAnalizer() {
+	public DocumentAnalizer( File sourceFile ) {
+		this.sourceFile = sourceFile;
 		this.totalLetras = 0;
 		this.totalParrafos = 0;
 		this.totalPalabras = 0;
@@ -52,10 +57,10 @@ public class DocumentAnalizer {
 	
 	//6. Metodos
 	// nivel_de_acceso tipo_retorno nombre_del_metodo ( lista_parametros )
-	public void analize( File sourceFile ) {
+	public void analize() {
 		
-		if( sourceFile.exists() ) {
-			Path path = Paths.get( sourceFile.toString() );
+		if( this.sourceFile.exists() ) {
+			Path path = Paths.get( this.sourceFile.toString() );
 			
 			try (BufferedReader reader = Files.newBufferedReader(path)) {
 			    String line = null;
@@ -64,8 +69,15 @@ public class DocumentAnalizer {
 			        totalLetras = totalLetras + l;
 			        totalLineas++;
 			        //buscar espacios en blanco para contar totalPalabras
-			        totalPalabras = line.indexOf(" ");
-			        totalPalabras++;
+			        String[] palabras = line.split(" ");
+			        String[] signos = line.split( coma );
+			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
+			        
+			        signos = line.split( punto );
+			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
+			        
+			        totalPalabras = totalPalabras + palabras.length;
+			        
 			        //buscar la posicion de signos de puntuacion y contar totalSignosPuntuacion
 			        int pos = line.lastIndexOf(".");
 			        if( pos == ( l - 1 ) ) {
@@ -79,7 +91,7 @@ public class DocumentAnalizer {
 			}
 		}
 		else {
-			System.out.println( "El archivo: " + sourceFile + " no existe" );
+			System.out.println( "El archivo: " + this.sourceFile + " no existe" );
 		}
 	}
 }

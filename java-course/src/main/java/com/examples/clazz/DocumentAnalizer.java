@@ -17,16 +17,18 @@ public class DocumentAnalizer {
 	//4. Propiedades o campos
 	private Integer totalLetras;
 	private Integer totalParrafos;
-	int totalPalabras;
-	int totalLineas;
-	int totalSignosPuntuacion;
+	private Integer totalPalabras;
+	private Integer totalLineas;
+	private Integer totalSignosPuntuacion;
 	
 	//5. Constructores
 	public DocumentAnalizer() {
 		this.totalLetras = 0;
 		this.totalParrafos = 0;
+		this.totalPalabras = 0;
+		this.totalLineas = 0;
+		this.totalSignosPuntuacion = 0;
 	}
-	
 	
 	public Integer getTotalLetras() {
 		return this.totalLetras;
@@ -34,6 +36,18 @@ public class DocumentAnalizer {
 	
 	public Integer getTotalParrafos() {
 		return this.totalParrafos;
+	}
+	
+	public Integer getTotalPalabras() {
+		return this.totalPalabras;
+	}
+	
+	public Integer getTotalLineas() {
+		return this.totalLineas;
+	}
+	
+	public Integer getTotalSignosPuntuacion() {
+		return this.totalSignosPuntuacion;
 	}
 	
 	//6. Metodos
@@ -48,6 +62,11 @@ public class DocumentAnalizer {
 			    while ( (line = reader.readLine()) != null ) {
 			    	int l = line.length();
 			        totalLetras = totalLetras + l;
+			        totalLineas++;
+			        //buscar espacios en blanco para contar totalPalabras
+			        totalPalabras = line.indexOf(" ");
+			        totalPalabras++;
+			        //buscar la posicion de signos de puntuacion y contar totalSignosPuntuacion
 			        int pos = line.lastIndexOf(".");
 			        if( pos == ( l - 1 ) ) {
 			        	totalParrafos++;

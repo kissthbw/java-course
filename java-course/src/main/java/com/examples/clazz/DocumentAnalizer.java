@@ -23,7 +23,10 @@ public class DocumentAnalizer {
 	private Integer totalSignosPuntuacion;
 	private static final String coma = ",";
 	private static final String punto = ".";
-	
+	private static final String abreInterrogacion = "¿";
+	private static final String cierraInterrogacion = "\\?";
+	private static final String abreExclamacion = "¡";
+	private static final String cierraExclamacion = "!";
 	
 	//5. Constructores
 	public DocumentAnalizer( File sourceFile ) {
@@ -74,6 +77,18 @@ public class DocumentAnalizer {
 			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
 			        
 			        signos = line.split( punto );
+			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
+			        
+			        signos = line.split( abreInterrogacion );
+			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
+			        
+			        signos = line.split( cierraInterrogacion );
+			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
+			        
+			        signos = line.split( abreExclamacion );
+			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
+			        
+			        signos = line.split( cierraExclamacion );
 			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
 			        
 			        totalPalabras = totalPalabras + palabras.length;

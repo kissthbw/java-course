@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //3. La definicion de la clase
 //nivel_de_acceso class nombre_de_la_clase
@@ -21,11 +25,14 @@ public class DocumentAnalizer {
 	private Integer totalPalabras;
 	private Integer totalLineas;
 	private Integer totalSignosPuntuacion;
-	private static final String coma = ",";
-	private static final String punto = ".";
-	private static final String abreInterrogacion = "�";
+	private Integer totalPuntos;
+	private Map<String, Integer> estadisticas = new HashMap<>();
+	
+	private static final String coma = "[,]";
+	private static final String punto = "[.]";
+	private static final String abreInterrogacion = "¿";
 	private static final String cierraInterrogacion = "\\?";
-	private static final String abreExclamacion = "�";
+	private static final String abreExclamacion = "¡";
 	private static final String cierraExclamacion = "!";
 	
 	//5. Constructores
@@ -36,6 +43,7 @@ public class DocumentAnalizer {
 		this.totalPalabras = 0;
 		this.totalLineas = 0;
 		this.totalSignosPuntuacion = 0;
+		this.totalPuntos = 0;
 	}
 	
 	public Integer getTotalLetras() {
@@ -58,6 +66,14 @@ public class DocumentAnalizer {
 		return this.totalSignosPuntuacion;
 	}
 	
+	public Integer getTotalPuntos() {
+		return totalPuntos;
+	}
+
+	public Map<String, Integer> getEstadisticas(){
+		return this.estadisticas;
+	}
+
 	//6. Metodos
 	// nivel_de_acceso tipo_retorno nombre_del_metodo ( lista_parametros )
 	public void analize() {
@@ -73,6 +89,25 @@ public class DocumentAnalizer {
 			        totalLineas++;
 			        //buscar espacios en blanco para contar totalPalabras
 			        String[] palabras = line.split(" ");
+			        
+			        //Definimos el patron
+			        //Las cadenas o caracteres a buscar deben ir entre corchetes []
+			        Pattern pattern = Pattern.compile("[,.¿\\?¡!]");
+			        Pattern p = Pattern.compile( "[" +  punto + "]" );
+			        
+			        //Se define el texto donde se va a buscar
+			        Matcher matcher = pattern.matcher( line );
+			        Matcher m = p.matcher(line);
+			        
+			        while (matcher.find()) {
+			        	totalSignosPuntuacion++;
+			        }
+			        
+			        while (m.find()) {
+			        	totalPuntos++;
+			        }
+			        
+			        /*
 			        String[] signos = line.split( coma );
 			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
 			        
@@ -90,6 +125,7 @@ public class DocumentAnalizer {
 			        
 			        signos = line.split( cierraExclamacion );
 			        totalSignosPuntuacion = totalSignosPuntuacion + signos.length;
+			        */
 			        
 			        totalPalabras = totalPalabras + palabras.length;
 			        
@@ -101,6 +137,9 @@ public class DocumentAnalizer {
 			    	
 			    	System.out.println(line);
 			    }
+			    
+			    estadisticas.put("PUNTOS", totalPuntos);
+			    
 			} catch (IOException x) {
 			    System.err.format("IOException: %s%n", x);
 			}

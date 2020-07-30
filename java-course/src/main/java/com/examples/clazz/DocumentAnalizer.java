@@ -26,6 +26,9 @@ public class DocumentAnalizer {
 	private Integer totalLineas;
 	private Integer totalSignosPuntuacion;
 	private Integer totalPuntos;
+	private Integer totalComas;
+	private Integer totalInterrogacion;
+	private Integer totalExclamacion;
 	private Map<String, Integer> estadisticas = new HashMap<>();
 	
 	private static final String coma = "[,]";
@@ -44,6 +47,9 @@ public class DocumentAnalizer {
 		this.totalLineas = 0;
 		this.totalSignosPuntuacion = 0;
 		this.totalPuntos = 0;
+		this.totalComas= 0;
+		this.totalInterrogacion = 0;
+		this.totalExclamacion = 0;
 	}
 	
 	public Integer getTotalLetras() {
@@ -67,7 +73,19 @@ public class DocumentAnalizer {
 	}
 	
 	public Integer getTotalPuntos() {
-		return totalPuntos;
+		return this.totalPuntos;
+	}
+	
+	public Integer getTotalComas() {
+		return this.totalComas;
+	}
+	
+	public Integer getTotalInterrogacion() {
+		return this.totalInterrogacion;
+	}
+	
+	public Integer getTotalExclamacion() {
+		return this.totalExclamacion;
 	}
 
 	public Map<String, Integer> getEstadisticas(){
@@ -94,10 +112,20 @@ public class DocumentAnalizer {
 			        //Las cadenas o caracteres a buscar deben ir entre corchetes []
 			        Pattern pattern = Pattern.compile("[,.¿\\?¡!]");
 			        Pattern p = Pattern.compile( "[" +  punto + "]" );
+			        Pattern c = Pattern.compile("[" +  coma + "]");
+			        Pattern aI = Pattern.compile("[" +  abreInterrogacion + "]");
+			        Pattern cI = Pattern.compile("[" +  cierraInterrogacion + "]");
+			        Pattern aE = Pattern.compile("[" +  abreExclamacion + "]");
+			        Pattern cE = Pattern.compile("[" +  cierraExclamacion + "]");
 			        
 			        //Se define el texto donde se va a buscar
 			        Matcher matcher = pattern.matcher( line );
 			        Matcher m = p.matcher(line);
+			        Matcher m1 = c.matcher(line);
+			        Matcher m2 = aI.matcher(line);
+			        Matcher m3 = cI.matcher(line);
+			        Matcher m4 = aE.matcher(line);
+			        Matcher m5 = cE.matcher(line);
 			        
 			        while (matcher.find()) {
 			        	totalSignosPuntuacion++;
@@ -105,6 +133,26 @@ public class DocumentAnalizer {
 			        
 			        while (m.find()) {
 			        	totalPuntos++;
+			        }
+			        
+			        while (m1.find()) {
+			        	totalComas++;
+			        }
+			        
+			        while (m2.find()) {
+			        	totalInterrogacion++;
+			        }
+			        
+			        while (m3.find()) {
+			        	totalInterrogacion++;
+			        }
+			        
+			        while (m4.find()) {
+			        	totalExclamacion++;
+			        }
+			        
+			        while (m5.find()) {
+			        	totalExclamacion++;
 			        }
 			        
 			        /*
@@ -139,6 +187,9 @@ public class DocumentAnalizer {
 			    }
 			    
 			    estadisticas.put("PUNTOS", totalPuntos);
+			    estadisticas.put("COMAS", totalComas);
+			    estadisticas.put("INTERROGACION", totalInterrogacion);
+			    estadisticas.put("EXCLAMACION", totalExclamacion);
 			    
 			} catch (IOException x) {
 			    System.err.format("IOException: %s%n", x);

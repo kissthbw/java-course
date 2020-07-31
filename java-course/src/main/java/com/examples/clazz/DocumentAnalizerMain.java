@@ -5,7 +5,9 @@ import java.util.Map;
 
 public class DocumentAnalizerMain {
 	public static void main( String[] args ) {
-		File file = new File( "/Users/Adrian/Desktop/text.txt" );
+		File file = new File( "/Users/juanosorioalvarez/Desktop/text.txt" );
+		File targetFile = new File( "/Users/juanosorioalvarez/Desktop/text-report.txt" );
+		
 		DocumentAnalizer doc = new DocumentAnalizer(file);
 		
 		doc.analize();
@@ -26,5 +28,12 @@ public class DocumentAnalizerMain {
 		System.out.println( "Total de signos de interrogacion: " + estadisticas.get("INTERROGACION"));
 		System.out.println( "Total de signos de exclamacion: " + estadisticas.get("EXCLAMACION"));
 
+		DocumentAnalizer doc2 = new DocumentAnalizer();
+		doc2.analize( file );
+		
+		DocumentAnalizer doc3 = new DocumentAnalizer();
+		doc3.setFileSource(file);
+		doc3.analize();
+		doc3.statsReport( targetFile );
 	}
 }

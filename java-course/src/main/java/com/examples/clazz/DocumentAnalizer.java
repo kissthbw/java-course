@@ -4,8 +4,10 @@ package com.examples.clazz;
 
 //2. Los imports (Opcional*)
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -41,6 +43,14 @@ public class DocumentAnalizer {
 	//5. Constructores
 	public DocumentAnalizer( File sourceFile ) {
 		this.sourceFile = sourceFile;
+		this.init();
+	}
+	
+	public DocumentAnalizer() {
+		this.init();
+	}
+	
+	private void init() {
 		this.totalLetras = 0;
 		this.totalParrafos = 0;
 		this.totalPalabras = 0;
@@ -50,6 +60,10 @@ public class DocumentAnalizer {
 		this.totalComas= 0;
 		this.totalInterrogacion = 0;
 		this.totalExclamacion = 0;
+	}
+	
+	public void setFileSource( File sourceFile ) {
+		this.sourceFile = sourceFile;
 	}
 	
 	public Integer getTotalLetras() {
@@ -94,7 +108,17 @@ public class DocumentAnalizer {
 
 	//6. Metodos
 	// nivel_de_acceso tipo_retorno nombre_del_metodo ( lista_parametros )
+	public void analize( File sourceFile ) {
+		this.sourceFile = sourceFile;
+		this.analize();
+	}
+	
 	public void analize() {
+		
+		if( null == sourceFile ) {
+			System.out.println( "No se ha proporcionado un archivo" );
+			return;
+		}
 		
 		if( this.sourceFile.exists() ) {
 			Path path = Paths.get( this.sourceFile.toString() );
@@ -197,6 +221,20 @@ public class DocumentAnalizer {
 		}
 		else {
 			System.out.println( "El archivo: " + this.sourceFile + " no existe" );
+		}
+	}
+	
+	public void statsReport( File targetFile ) {
+		Charset charset = Charset.forName("US-ASCII");
+
+		Path path = Paths.get( targetFile.toString() );
+		
+		try (BufferedWriter writer = Files.newBufferedWriter(path, charset)) {
+			writer.write( "Total de letras: " + this.totalLetras + "\n" );
+			writer.write( "Total de palabras: " + this.totalPalabras + "\n" );
+//		    writer.write(s, 0, s.length());
+		} catch (IOException x) {
+		    System.err.format("IOException: %s%n", x);
 		}
 	}
 }

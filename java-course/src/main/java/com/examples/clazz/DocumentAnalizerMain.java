@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class DocumentAnalizerMain {
 	public static void main( String[] args ) {
-		File file = new File( "/Users/juanosorioalvarez/Desktop/text.txt" );
-		File targetFile = new File( "/Users/juanosorioalvarez/Desktop/text-report.txt" );
+		File file = new File( "/Users/Adrian/Desktop/text.txt" );
+		File targetFile = new File( "/Users/Adrian/Desktop/text-report.txt" );
 		
 		DocumentAnalizer doc = new DocumentAnalizer(file);
 		

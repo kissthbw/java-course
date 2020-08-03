@@ -232,6 +232,8 @@ public class DocumentAnalizer {
 		try (BufferedWriter writer = Files.newBufferedWriter(path, charset)) {
 			writer.write( "Total de letras: " + this.totalLetras + "\n" );
 			writer.write( "Total de palabras: " + this.totalPalabras + "\n" );
+			writer.write( "Total de signos de interrogacion: " + this.totalInterrogacion + "\n" );
+			writer.write( "Total de signos de exclamacion: " + this.totalExclamacion + "\n" );
 //		    writer.write(s, 0, s.length());
 		} catch (IOException x) {
 		    System.err.format("IOException: %s%n", x);

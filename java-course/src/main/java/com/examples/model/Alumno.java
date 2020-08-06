@@ -58,12 +58,19 @@ public class Alumno {
 	// Crea 10 ejemplos de clase padre y clase hijo con sus respectivas propiedades,
 	// metodos y constructores.
 
-	public Alumno(String nombre, String apellidoPaterno, String apellidoMaterno, String numeroLista) {
+	public Alumno() {
+		
+	}
+	
+	public Alumno(String nombre, String apellidoPaterno, 
+			String apellidoMaterno, String numeroLista) {
 		this.nombre = nombre;
 		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
+
 	}
 
 	public static void main(String[] args) {
-		Alumno a = new Alumno("Juan", "Osorio", "", "");
+		Alumno a = new Alumno("Juan", "Osorio", "Alvarez", "28");
 	}
 }

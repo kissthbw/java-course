@@ -73,5 +73,17 @@ public class Alumno {
 
 	public static void main(String[] args) {
 		Alumno a = new Alumno("Juan", "Osorio", "Alvarez", "28");
+		
+		Alumno b = new Alumno();
+		b.setNombre( "Juan" );
+		b.setApellidoPaterno("Osorio");
+		b.setApellidoMaterno("");
+		b.setNumeroLista("");
+		
+		Alumno c = new Alumno();
+		c.setNombre("Adrian");		
+		
+		Alumno d = new Alumno("Adrian", "Osorio", "Alvarez", "28");
+		
 	}
 }

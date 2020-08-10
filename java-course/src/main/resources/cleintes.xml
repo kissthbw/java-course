@@ -1,0 +1,21 @@
+<clientes>
+	<cliente>
+		<nombre>Juan</nombre>
+		<paterno>Osorio</paterno>
+		<materno>Alvarez</materno>
+		<edad>35</edad>
+		<cuenta>2101</cuenta>
+		<email>kissthbw@gmail.com</email>
+		<area>Informatica</area>
+	</cliente>
+	<cliente>
+		<nombre></nombre>
+		<paterno></paterno>
+		<materno></materno>
+		<edad></edad>
+		<cuenta></cuenta>
+		<email></email>
+		<area></area>
+	</cliente>
+</clientes>
+

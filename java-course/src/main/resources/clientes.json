@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Juan",
+    "paterno": "Osorio",
+    "materno": "Alvarez",
+    "edad": "36",
+    "cuenta": "2101",
+    "email": "kissthbw@gmail.com",
+    "area": "Informtica"
+  },
+  {
+    "nombre": "Adrian",
+    "paterno": "Osorio",
+    "materno": "Alvarez",
+    "edad": "35",
+    "cuenta": "0210",
+    "email": "osorio.alvarez@gmail.com",
+    "area": "Informtica"
+  }
+]

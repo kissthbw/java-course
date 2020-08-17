@@ -1,7 +1,5 @@
 package com.examples.clazz;
 
-import java.io.File;
-
 public class Client {
 
 	private String nombre;

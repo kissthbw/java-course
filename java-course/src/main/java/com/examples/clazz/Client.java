@@ -10,6 +10,21 @@ public class Client {
 	private String email;
 	private String area;
 
+	// Constructores
+	public Client() {
+		this.init();
+	}
+
+	public void init() {
+		this.nombre = "";
+		this.paterno = "";
+		this.materno = "";
+		this.edad = "";
+		this.cuenta = "";
+		this.email = "";
+		this.area = "";
+	}
+
 	// Metodos set y get de las propiedades de la clase Client
 	public String getNombre() {
 		return nombre;
@@ -67,18 +82,45 @@ public class Client {
 		this.area = area;
 	}
 
-	// Constructores
-	public Client() {
-		this.init();
-	}
-
-	public void init() {
-		this.nombre = "";
-		this.paterno = "";
-		this.materno = "";
-		this.edad = "";
-		this.cuenta = "";
-		this.email = "";
-		this.area = "";
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Client [");
+		if (nombre != null) {
+			builder.append("nombre=");
+			builder.append(nombre);
+			builder.append(", ");
+		}
+		if (paterno != null) {
+			builder.append("paterno=");
+			builder.append(paterno);
+			builder.append(", ");
+		}
+		if (materno != null) {
+			builder.append("materno=");
+			builder.append(materno);
+			builder.append(", ");
+		}
+		if (edad != null) {
+			builder.append("edad=");
+			builder.append(edad);
+			builder.append(", ");
+		}
+		if (cuenta != null) {
+			builder.append("cuenta=");
+			builder.append(cuenta);
+			builder.append(", ");
+		}
+		if (email != null) {
+			builder.append("email=");
+			builder.append(email);
+			builder.append(", ");
+		}
+		if (area != null) {
+			builder.append("area=");
+			builder.append(area);
+		}
+		builder.append("]");
+		return builder.toString();
 	}
 }

@@ -38,7 +38,7 @@ public class CSVClientReader implements ClientReader {
 
 	@Override
 	public void reader() {
-
+		listClient = new ArrayList<>();
 		if (null == sourceFile) {
 			System.out.println("No se ha proporcionado un archivo");
 			return;
@@ -97,7 +97,7 @@ public class CSVClientReader implements ClientReader {
 
 	public static void main(String[] args) {
 
-		File file = new File("C:/Users/Adrian/Documents/java-course/java-course/src/main/resources/clientes.csv");
+		File file = new File("/Users/juanosorioalvarez/Desktop/clientes.csv");
 
 		CSVClientReader doc = new CSVClientReader(file);
 		doc.reader();

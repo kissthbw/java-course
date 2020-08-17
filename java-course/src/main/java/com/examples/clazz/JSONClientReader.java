@@ -60,9 +60,15 @@ public class JSONClientReader implements ClientReader {
 	}
 	// Agregar un main
 	public static void main(String[] args) {
-		File file = new File("C:/Users/Adrian/Documents/java-course/java-course/src/main/resources/clientes.json");
+		File file = new File("/Users/juanosorioalvarez/Desktop/clientes.csv");
 		
 		JSONClientReader cliente = new JSONClientReader(file);
 		cliente.reader();
+	}
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
 	}
 }

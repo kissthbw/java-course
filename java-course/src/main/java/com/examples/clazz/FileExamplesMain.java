@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
 
 public class FileExamplesMain {
 
@@ -123,7 +125,9 @@ public class FileExamplesMain {
 	public static void readJSONFile(String file){
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			List<Object> map = mapper.readValue(new File(file), List.class);
+			CollectionType javaType = mapper.getTypeFactory()
+				      .constructCollectionType(List.class, Client.class);
+			List<Client> map = mapper.readValue(new File(file), javaType);
 			System.out.println( map );
 			
 		} catch (IOException e) {

@@ -16,5 +16,14 @@
     "cuenta": "0210",
     "email": "osorio.alvarez@gmail.com",
     "area": "Informtica"
+  },
+  {
+    "nombre": "Karina",
+    "paterno": "Osorio",
+    "materno": "Alvarez",
+    "edad": "32",
+    "cuenta": "0210",
+    "email": "osorio.alvarez@gmail.com",
+    "area": "Informtica"
   }
 ]
